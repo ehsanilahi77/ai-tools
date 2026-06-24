@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+
+@theme {
+    /* Fonts */
+    --font-sans: "Source Code Pro", ui-monospace, monospace;
+    --font-display: "Playfair Display", ui-serif, Georgia, serif;
+
+    /* Dark Vintage Palette */
+    --color-vintage-50: #faf6ed;
+    --color-vintage-100: #f5e6c8;
+    --color-vintage-200: #e8d5a8;
+    --color-vintage-300: #d4b87a;
+    --color-vintage-400: #c9a84c;
+    --color-vintage-500: #b8943f;
+    --color-vintage-600: #9a7a33;
+    --color-vintage-700: #7a6029;
+    --color-vintage-800: #5c4820;
+    --color-vintage-900: #3d3016;
+
+    --color-dark-50: #3a3a3a;
+    --color-dark-100: #2e2e2e;
+    --color-dark-200: #262626;
+    --color-dark-300: #1f1f1f;
+    --color-dark-400: #1a1a1a;
+    --color-dark-500: #151515;
+    --color-dark-600: #111111;
+    --color-dark-700: #0d0d0d;
+    --color-dark-800: #0a0a0a;
+    --color-dark-900: #050505;
+
+    --color-brass: #c9a84c;
+    --color-brass-dim: #9a7a33;
+    --color-parchment: #f5e6c8;
+    --color-parchment-dim: #d4c4a0;
+    --color-ink: #2c2416;
+    --color-patina: #5a7a6a;
+    --color-rust: #8b5e3c;
+
+    /* Animations */
+    --animate-fade-in: fade-in 0.4s ease-out;
+    --animate-slide-up: slide-up 0.4s ease-out;
+    --animate-pulse-dot: pulse-dot 1.4s ease-in-out infinite;
+    --animate-flicker: flicker 4s ease-in-out infinite;
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-up {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse-dot {
+        0%,
+        80%,
+        100% {
+            opacity: 0.3;
+            transform: scale(0.8);
+        }
+        40% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes flicker {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.85;
+        }
+    }
+}
+
+/* Noise texture overlay */
+.noise-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 50;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #3d3016;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c9a84c;
+}
+
+/* Selection color */
+::selection {
+    background: #c9a84c;
+    color: #0d0d0d;
+}

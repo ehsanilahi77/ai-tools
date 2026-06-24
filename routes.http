@@ -1,0 +1,28 @@
+@baseUrl = http://127.0.0.1:8000
+@accept = application/json
+
+### Support agent smoke test
+GET {{baseUrl}}/test-agent
+Accept: {{accept}}
+
+### Start chat
+GET {{baseUrl}}/chat/start
+Accept: {{accept}}
+
+### Continue chat
+GET {{baseUrl}}/chat/continue/your-conversation-id
+Accept: {{accept}}
+
+### Ticket classifier
+GET {{baseUrl}}/classify/test
+Accept: {{accept}}
+
+### Create ticket (requires auth)
+POST {{baseUrl}}/tickets
+Accept: {{accept}}
+Content-Type: application/json
+
+{
+  "subject": "Double charge on order #1042",
+  "body": "I was charged twice and need help."
+}
